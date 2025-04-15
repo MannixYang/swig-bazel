@@ -1,0 +1,7 @@
+BAZELISK_BASE_URL=https://repo.huaweicloud.com/bazel
+# DO NOT use any lower version NOR 7.4.1
+#  See https://github.com/bazelbuild/bazel/issues/21884
+#  This bug was fixed in 7.4.0 by https://github.com/bazelbuild/bazel/pull/24017
+#  but reverted in 7.4.1 by https://github.com/bazelbuild/bazel/pull/24087
+# Stick to 7.4.0 until Bazel come up with another fix.
+USE_BAZEL_VERSION=7.4.0

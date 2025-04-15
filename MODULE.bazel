@@ -1,0 +1,2 @@
+
+bazel_dep(name="pcre2", version="10.43")

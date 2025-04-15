@@ -221,6 +221,10 @@ Examples/r/*/.RData
 Examples/test-suite/scilab/*/
 loader.sce
 
-.vs/
-
+# bazel
 bazel-*/
+MODULE.bazel.lock
+
+# ide
+.vs/
+.vscode/
