@@ -50,10 +50,10 @@ swig_cpp_to_python = rule(
     doc = "Generates Python bindings via SWIG",
 )
 
-def swig_cpp_to_python_binary(name, srcs, main, cpp_hdrs, cpp_srcs, translator, module_name, **kwargs):
+def swig_cpp_to_python_binary(name, hdrs, srcs, translator, module_name, **kwargs):
     swig_cpp_to_python(
         name = name + "_py",
-        includes = cpp_hdrs,
+        includes = hdrs,
         translator = translator,
         wrap_cxx = name + "_wrap.cxx",
         module_name = module_name,
@@ -61,21 +61,20 @@ def swig_cpp_to_python_binary(name, srcs, main, cpp_hdrs, cpp_srcs, translator, 
 
     native.cc_library(
         name = "lib_" + name,
-        hdrs = cpp_hdrs,
-        srcs = cpp_srcs + [name + "_wrap.cxx"],
+        hdrs = hdrs,
+        srcs = srcs + [name + "_wrap.cxx"],
         deps = ["@cpython_windows//:embed"],
     )
 
     native.cc_shared_library(
         name = name + "_shared",
-        shared_lib_name = "_" + name + ".pyd",
+        shared_lib_name = "_" + module_name + ".pyd",
         deps = ["lib_" + name],
     )
 
-    native.py_binary(
+    native.py_library(
         name = name,
-        srcs = [name + "_py"] + srcs,
-        main = main,
+        srcs = [name + "_py"],
         imports = ["."],
         data = [name + "_shared"],
         **kwargs
