@@ -109,6 +109,7 @@ Examples/scratch
 
 # Out of source tree build directories
 *build*/
+!third_build/
 
 # errors test-suite
 Examples/test-suite/errors/*.newerr

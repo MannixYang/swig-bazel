@@ -19,10 +19,3 @@ double Circle::perimeter() {
   return 2*M_PI*radius;
 }
 
-double Square::area() {
-  return width*width;
-}
-
-double Square::perimeter() {
-  return 4*width;
-}

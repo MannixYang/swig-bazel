@@ -1,2 +1,12 @@
 
 bazel_dep(name="pcre2", version="10.43")
+
+# rules_python
+
+bazel_dep(name = "rules_python", version = "1.0.0")
+
+python = use_extension("@rules_python//python/extensions:python.bzl", "python")
+python.toolchain(
+    python_version = "3.12",
+    is_default = True,
+)
