@@ -1,6 +1,6 @@
-load("//generator:swig_cpp_to_python.bzl", "swig_cpp_to_python_binary")
+load("//generator:swig_cpp_to_python.bzl", "swig_cpp_to_python_library")
 
-swig_cpp_to_python_binary(
+swig_cpp_to_python_library(
     name = "example_cpp",
     srcs = [
         "example.cxx",

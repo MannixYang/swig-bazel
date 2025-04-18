@@ -50,7 +50,7 @@ swig_cpp_to_python = rule(
     doc = "Generates Python bindings via SWIG",
 )
 
-def swig_cpp_to_python_binary(name, hdrs, srcs, translator, module_name, **kwargs):
+def swig_cpp_to_python_library(name, hdrs, srcs, translator, module_name, **kwargs):
     swig_cpp_to_python(
         name = name + "_py",
         includes = hdrs,
